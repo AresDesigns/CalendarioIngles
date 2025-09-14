@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario Anual de Inglés</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        details summary {
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        details summary::after {
+            content: "+";
+            font-size: 1.5rem;
+            font-weight: bold;
+            transition: transform 0.2s ease-in-out;
+        }
+        details[open] summary::after {
+            content: "-";
+            transform: rotate(180deg);
+        }
+        .summary-title {
+            padding: 1.5rem;
+            font-weight: bold;
+            font-size: 1.5rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .summary-title:hover {
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+        .content-box {
+            padding: 1.5rem;
+            border-radius: 1.5rem;
+            background-color: white;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+        }
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 3.5rem;
+            height: 3.5rem;
+            background-color: #4f46e5;
+            color: white;
+            border-radius: 9999px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: opacity 0.3s ease-in-out;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 50;
+        }
+        .scroll-to-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 p-4 sm:p-8">
+    <div class="max-w-7xl mx-auto bg-white rounded-3xl shadow-xl p-6 sm:p-10 lg:p-12" id="main-content-container">
+        <h1 class="text-4xl sm:text-5xl font-bold text-center mb-2 text-indigo-600">Calendario de Estudio de Inglés</h1>
+        <p class="text-center text-lg sm:text-xl text-gray-600 mb-10">De A1 a C2</p>
+        
+        <p class="text-center text-gray-500 mb-8">
+            Este calendario te ayuda a estructurar tu aprendizaje. Los tiempos de estudio son sugerencias y la consistencia es más importante que la duración.
+        </p>
+
+        <!-- Resumen Anual -->
+        <div class="mb-12 text-center" id="resumen-del-plan-anual">
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-700 mb-6 border-b-4 border-gray-300 pb-2">Resumen del Plan Anual</h2>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#nivel-a1" class="bg-indigo-100 p-4 rounded-xl shadow hover:bg-indigo-200 transition-colors">
+                    <p class="font-bold text-indigo-800">A1</p>
+                    <p>4 meses</p>
+                </a>
+                <a href="#nivel-a2" class="bg-green-100 p-4 rounded-xl shadow hover:bg-green-200 transition-colors">
+                    <p class="font-bold text-green-800">A2</p>
+                    <p>7 meses</p>
+                </a>
+                <a href="#nivel-b1" class="bg-blue-100 p-4 rounded-xl shadow hover:bg-blue-200 transition-colors">
+                    <p class="font-bold text-blue-800">B1</p>
+                    <p>10 meses</p>
+                </a>
+                <a href="#nivel-b2" class="bg-yellow-100 p-4 rounded-xl shadow hover:bg-yellow-200 transition-colors">
+                    <p class="font-bold text-yellow-800">B2</p>
+                    <p>10 meses</p>
+                </a>
+                <a href="#nivel-c1" class="bg-red-100 p-4 rounded-xl shadow hover:bg-red-200 transition-colors">
+                    <p class="font-bold text-red-800">C1</p>
+                    <p>12 meses</p>
+                </a>
+                <a href="#nivel-c2" class="bg-purple-100 p-4 rounded-xl shadow hover:bg-purple-200 transition-colors">
+                    <p class="font-bold text-purple-800">C2</p>
+                    <p>12+ meses</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- Nivel A1 -->
+        <div id="nivel-a1" class="mb-12">
+            <h2 class="text-3xl sm:text-4xl font-bold text-indigo-500 mb-6 border-b-4 border-indigo-200 pb-2">Nivel A1</h2>
+            
+            <details class="mb-6">
+                <summary class="summary-title bg-indigo-100 text-indigo-800 hover:bg-indigo-200">
+                    Mes 1: Saludos y Presentaciones
+                </summary>
+                <div class="mt-4 p-6 bg-indigo-50 rounded-2xl">
+                    <p class="text-lg font-semibold text-indigo-800 mb-4">Objetivo del Mes: Entender y usar expresiones de saludo, el verbo `to be` y pronombres personales.</p>
+                    <h3 class="text-2xl font-semibold text-indigo-700 mb-4">Semana 1: Saludos, Presentarse y el Verbo "to be"</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-indigo-400">
+                            <h4 class="font-bold text-lg mb-2 text-indigo-900">Lunes</h4>
+                            <p class="text-gray-700"><strong>Listening:</strong> 15 min - Escucha diálogos de saludos.</p>
+                            <p class="text-gray-700"><strong>Speaking:</strong> 15 min - Repite frases de saludo.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-indigo-400">
+                            <h4 class="font-bold text-lg mb-2 text-indigo-900">Martes</h4>
+                            <p class="text-gray-700"><strong>Reading:</strong> 15 min - Lee un diálogo sencillo.</p>
+                            <p class="text-gray-700"><strong>Writing:</strong> 15 min - Escribe 5 frases presentándote.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-indigo-400">
+                            <h4 class="font-bold text-lg mb-2 text-indigo-900">Miércoles</h4>
+                            <p class="text-gray-700"><strong>Listening:</strong> 15 min - Escucha una canción infantil.</p>
+                            <p class="text-gray-700"><strong>Speaking:</strong> 15 min - Presenta a alguien imaginario.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-indigo-400">
+                            <h4 class="font-bold text-lg mb-2 text-indigo-900">Jueves</h4>
+                            <p class="text-gray-700"><strong>Grammar:</strong> 15 min - Estudia el verbo `to be`.</p>
+                            <p class="text-gray-700"><strong>Vocabulary:</strong> 15 min - Memoriza 10 palabras de la familia y profesiones.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-indigo-400">
+                            <h4 class="font-bold text-lg mb-2 text-indigo-900">Viernes</h4>
+                            <p class="text-gray-700"><strong>Práctica Libre:</strong> 30 min - Conversa con un compañero o contigo mismo.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-indigo-400">
+                            <h4 class="font-bold text-lg mb-2 text-indigo-900">Sábado</h4>
+                            <p class="text-gray-700"><strong>Inmersión:</strong> 45 min - Ve una película con subtítulos en inglés.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-indigo-400">
+                            <h4 class="font-bold text-lg mb-2 text-indigo-900">Domingo</h4>
+                            <p class="text-gray-700"><strong>Repaso:</strong> 30 min - Repasa la gramática y el vocabulario de la semana.</p>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-indigo-700 mt-8 mb-4">Semanas 2-4: Expansión de Vocabulario y Presente Simple</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-indigo-400">
+                            <h4 class="font-bold text-lg mb-2 text-indigo-900">Lunes</h4>
+                            <p class="text-gray-700"><strong>Listening:</strong> 15 min - Escucha sobre comida.</p>
+                            <p class="text-gray-700"><strong>Speaking:</strong> 15 min - Habla sobre tus comidas favoritas.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-indigo-400">
+                            <h4 class="font-bold text-lg mb-2 text-indigo-900">Martes</h4>
+                            <p class="text-gray-700"><strong>Reading:</strong> 30 min - Lee sobre rutinas diarias.</p>
+                            <p class="text-gray-700"><strong>Writing:</strong> 15 min - Escribe sobre tu rutina.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-indigo-400">
+                            <h4 class="font-bold text-lg mb-2 text-indigo-900">Miércoles</h4>
+                            <p class="text-gray-700"><strong>Listening:</strong> 15 min - Escucha descripciones de casas.</p>
+                            <p class="text-gray-700"><strong>Speaking:</strong> 15 min - Describe tu casa.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-indigo-400">
+                            <h4 class="font-bold text-lg mb-2 text-indigo-900">Jueves</h4>
+                            <p class="text-gray-700"><strong>Grammar:</strong> 15 min - Practica el Presente Simple.</p>
+                            <p class="text-gray-700"><strong>Vocabulary:</strong> 15 min - Memoriza vocabulario de la ciudad.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-indigo-400">
+                            <h4 class="font-bold text-lg mb-2 text-indigo-900">Viernes</h4>
+                            <p class="text-gray-700"><strong>Práctica Libre:</strong> 30 min - Conversa sobre tus hobbies.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-indigo-400">
+                            <h4 class="font-bold text-lg mb-2 text-indigo-900">Sábado</h4>
+                            <p class="text-gray-700"><strong>Inmersión:</strong> 45 min - Ve un video sobre viajes.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-indigo-400">
+                            <h4 class="font-bold text-lg mb-2 text-indigo-900">Domingo</h4>
+                            <p class="text-gray-700"><strong>Repaso:</strong> 30 min - Repasa lo aprendido en la semana.</p>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <details class="mb-6">
+                <summary class="summary-title bg-indigo-100 text-indigo-800 hover:bg-indigo-200">
+                    Vocabulario A1
+                </summary>
+                <div class="mt-4 p-6 bg-indigo-50 rounded-2xl">
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                        <li><strong>Saludos y despedidas:</strong> `Hello`, `Hi`, `Goodbye`, `Bye`, `Good morning`, `Good afternoon`, `Good evening`, `Good night`.</li>
+                        <li><strong>Números:</strong> Del 1 al 100.</li>
+                        <li><strong>Días de la semana y meses:</strong> `Monday`, `Tuesday`, `January`, `February`.</li>
+                        <li><strong>Familia, profesiones y nacionalidades:</strong> `Mother`, `father`, `teacher`, `student`, `Spanish`, `American`.</li>
+                        <li><strong>Comida y bebidas:</strong> `Apple`, `banana`, `water`, `coffee`.</li>
+                        <li><strong>Hobbies y actividades:</strong> `Reading`, `watching movies`, `playing football`.</li>
+                        <li><strong>Animales:</strong> `Cat`, `dog`, `bird`.</li>
+                        <li><strong>Lugares de la ciudad y partes de la casa:</strong> `Park`, `supermarket`, `living room`, `kitchen`.</li>
+                        <li><strong>Adjetivos básicos:</strong> `Big`, `small`, `happy`, `sad`.</li>
+                        <li><strong>Verbos comunes:</strong> `to eat`, `to drink`, `to go`, `to have`.</li>
+                    </ul>
+                </div>
+            </details>
+            <details class="mb-6">
+                <summary class="summary-title bg-indigo-100 text-indigo-800 hover:bg-indigo-200">
+                    Gramática A1
+                </summary>
+                <div class="mt-4 p-6 bg-indigo-50 rounded-2xl">
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                        <li><strong>Verbo `to be`:</strong> I am, you are, he/she/it is, we are, they are.</li>
+                        <li><strong>Pronombres personales y posesivos:</strong> `I`, `you`, `he`, `my`, `your`, `his`.</li>
+                        <li><strong>Artículos:</strong> `a`, `an`, `the`.</li>
+                        <li><strong>Plurales de sustantivos:</strong> `book` -> `books`.</li>
+                        <li><strong>Presente Simple:</strong> Formas afirmativa, negativa, e interrogativa.</li>
+                        <li><strong>Preposiciones de lugar y tiempo:</strong> `in`, `on`, `at`, `under`, `next to`.</li>
+                        <li><strong>Adjetivos posesivos:</strong> `my`, `your`, `his`, `her`.</li>
+                        <li><strong>Preguntas con `Wh-` words:</strong> `who`, `what`, `where`.</li>
+                        <li><strong>Expresiones de cantidad:</strong> `some`, `any`.</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <!-- Nivel A2 -->
+        <div id="nivel-a2" class="mb-12">
+            <h2 class="text-3xl sm:text-4xl font-bold text-green-500 mb-6 border-b-4 border-green-200 pb-2">Nivel A2</h2>
+            
+            <details class="mb-6">
+                <summary class="summary-title bg-green-100 text-green-800 hover:bg-green-200">
+                    Mes 1: Pasado y Experiencias
+                </summary>
+                <div class="mt-4 p-6 bg-green-50 rounded-2xl">
+                    <p class="text-lg font-semibold text-green-800 mb-4">Objetivo del Mes: Hablar del pasado con el pasado simple, verbos regulares e irregulares.</p>
+                    <h3 class="text-2xl font-semibold text-green-700 mb-4">Semana 1: Pasado Simple - Verbos Regulares e Irregulares</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-400">
+                            <h4 class="font-bold text-lg mb-2 text-green-900">Lunes</h4>
+                            <p class="text-gray-700"><strong>Listening:</strong> 20 min - Escucha un podcast con una historia en pasado.</p>
+                            <p class="text-gray-700"><strong>Speaking:</strong> 10 min - Describe lo que hiciste ayer.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-400">
+                            <h4 class="font-bold text-lg mb-2 text-green-900">Martes</h4>
+                            <p class="text-gray-700"><strong>Reading:</strong> 20 min - Lee una historia corta en pasado.</p>
+                            <p class="text-gray-700"><strong>Writing:</strong> 10 min - Escribe sobre tu fin de semana pasado.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-400">
+                            <h4 class="font-bold text-lg mb-2 text-green-900">Miércoles</h4>
+                            <p class="text-gray-700"><strong>Listening:</strong> 20 min - Ve un video sobre un viaje.</p>
+                            <p class="text-gray-700"><strong>Speaking:</strong> 10 min - Habla de un viaje que hayas hecho.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-400">
+                            <h4 class="font-bold text-lg mb-2 text-green-900">Jueves</h4>
+                            <p class="text-gray-700"><strong>Grammar:</strong> 15 min - Practica la conjugación de verbos regulares en pasado.</p>
+                            <p class="text-gray-700"><strong>Vocabulary:</strong> 15 min - Aprende 10 verbos irregulares comunes.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-400">
+                            <h4 class="font-bold text-lg mb-2 text-green-900">Viernes</h4>
+                            <p class="text-gray-700"><strong>Práctica Libre:</strong> 30 min - Pregúntale a un amigo qué hizo ayer.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-400">
+                            <h4 class="font-bold text-lg mb-2 text-green-900">Sábado</h4>
+                            <p class="text-gray-700"><strong>Inmersión:</strong> 1 hora - Ve una película o serie sin subtítulos en español.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-400">
+                            <h4 class="font-bold text-lg mb-2 text-green-900">Domingo</h4>
+                            <p class="text-gray-700"><strong>Repaso:</strong> 45 min - Repasa el pasado simple, verbos y el vocabulario de la semana.</p>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <details class="mb-6">
+                <summary class="summary-title bg-green-100 text-green-800 hover:bg-green-200">
+                    Meses 2-7: Planes a Futuro, Modales y Comparativos
+                </summary>
+                <div class="mt-4 p-6 bg-green-50 rounded-2xl">
+                    <p class="text-lg font-semibold text-green-800 mb-4">Objetivo: Hablar de planes futuros, usar verbos modales y comparar cosas. Abarca 6 meses para consolidar estos conceptos.</p>
+                    <h3 class="text-2xl font-semibold text-green-700 mb-4">Semana 1: Futuro con 'going to' y 'will'</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-400">
+                            <h4 class="font-bold text-lg mb-2 text-green-900">Lunes</h4>
+                            <p class="text-gray-700"><strong>Listening:</strong> 20 min - Escucha sobre planes de fin de semana.</p>
+                            <p class="text-gray-700"><strong>Speaking:</strong> 20 min - Habla sobre lo que vas a hacer mañana.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-400">
+                            <h4 class="font-bold text-lg mb-2 text-green-900">Martes</h4>
+                            <p class="text-gray-700"><strong>Reading:</strong> 30 min - Lee sobre planes de viaje.</p>
+                            <p class="text-gray-700"><strong>Writing:</strong> 15 min - Escribe un párrafo sobre tus planes futuros.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-400">
+                            <h4 class="font-bold text-lg mb-2 text-green-900">Miércoles</h4>
+                            <p class="text-gray-700"><strong>Listening:</strong> 20 min - Escucha predicciones del clima.</p>
+                            <p class="text-gray-700"><strong>Speaking:</strong> 15 min - Haz predicciones con `will`.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-400">
+                            <h4 class="font-bold text-lg mb-2 text-green-900">Jueves</h4>
+                            <p class="text-gray-700"><strong>Grammar:</strong> 20 min - Practica el futuro con `going to` y `will`.</p>
+                            <p class="text-gray-700"><strong>Vocabulary:</strong> 15 min - Aprende vocabulario de viajes y clima.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-400">
+                            <h4 class="font-bold text-lg mb-2 text-green-900">Viernes</h4>
+                            <p class="text-gray-700"><strong>Práctica Libre:</strong> 30 min - Crea un diálogo sobre planes.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-400">
+                            <h4 class="font-bold text-lg mb-2 text-green-900">Sábado</h4>
+                            <p class="text-gray-700"><strong>Inmersión:</strong> 1 hora - Ve una película o serie.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-400">
+                            <h4 class="font-bold text-lg mb-2 text-green-900">Domingo</h4>
+                            <p class="text-gray-700"><strong>Repaso:</strong> 45 min - Repasa lo aprendido en la semana.</p>
+                        </div>
+                    </div>
+                </div>
+            </details>
+            
+            <details class="mb-6">
+                <summary class="summary-title bg-green-100 text-green-800 hover:bg-green-200">
+                    Vocabulario A2
+                </summary>
+                <div class="mt-4 p-6 bg-green-50 rounded-2xl">
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                        <li><strong>Adjetivos de personalidad y apariencia:</strong> `shy`, `friendly`, `tall`, `short`.</li>
+                        <li><strong>Verbos de rutina diaria y hobbies:</strong> `wake up`, `get dressed`, `go to the gym`.</li>
+                        <li><strong>Vocabulario de viajes y lugares:</strong> `airport`, `hotel`, `train station`, `beach`.</li>
+                        <li><strong>Comida y restaurantes:</strong> `main course`, `dessert`, `bill`, `waiter`.</li>
+                        <li><strong>Cuerpo y salud:</strong> `headache`, `fever`, `doctor`, `hospital`.</li>
+                        <li><strong>Verbos irregulares comunes:</strong> `to go` -> `went`, `to eat` -> `ate`.</li>
+                        <li><strong>Lugares de compras:</strong> `supermarket`, `bakery`, `clothes store`.</li>
+                        <li><strong>Medios de transporte:</strong> `bus`, `car`, `plane`, `bicycle`.</li>
+                    </ul>
+                </div>
+            </details>
+            <details class="mb-6">
+                <summary class="summary-title bg-green-100 text-green-800 hover:bg-green-200">
+                    Gramática A2
+                </summary>
+                <div class="mt-4 p-6 bg-green-50 rounded-2xl">
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                        <li><strong>Pasado simple:</strong> Verbos regulares e irregulares.</li>
+                        <li><strong>Futuro con `going to` y `will`:</strong> Uso para planes y predicciones.</li>
+                        <li><strong>Presente Continuo:</strong> Para acciones en progreso y planes futuros.</li>
+                        <li><strong>Verbos modales básicos:</strong> `can`, `could`, `should`.</li>
+                        <li><strong>Comparativos y superlativos:</strong> `bigger than`, `the biggest`.</li>
+                        <li><strong>Adverbios de frecuencia:</strong> `always`, `sometimes`, `never`.</li>
+                        <li><strong>Preposiciones avanzadas:</strong> `through`, `across`, `from`.</li>
+                        <li><strong>Preguntas con `How much` / `How many` y `How often`.</strong></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <!-- Nivel B1 -->
+        <div id="nivel-b1" class="mb-12">
+            <h2 class="text-3xl sm:text-4xl font-bold text-blue-500 mb-6 border-b-4 border-blue-200 pb-2">Nivel B1</h2>
+            
+            <details class="mb-6">
+                <summary class="summary-title bg-blue-100 text-blue-800 hover:bg-blue-200">
+                    Mes 1: Opiniones y Debates
+                </summary>
+                <div class="mt-4 p-6 bg-blue-50 rounded-2xl">
+                    <p class="text-lg font-semibold text-blue-800 mb-4">Objetivo del Mes: Expresar opiniones y participar en debates sencillos. Usar el Presente Perfecto.</p>
+                    <h3 class="text-2xl font-semibold text-blue-700 mb-4">Semana 1: Presente Perfecto y Debates</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-400">
+                            <h4 class="font-bold text-lg mb-2 text-blue-900">Lunes</h4>
+                            <p class="text-gray-700"><strong>Listening:</strong> 1 hora - Ve un TED Talk con subtítulos en inglés.</p>
+                            <p class="text-gray-700"><strong>Speaking:</strong> 30 min - Da tu opinión sobre el tema.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-400">
+                            <h4 class="font-bold text-lg mb-2 text-blue-900">Martes</h4>
+                            <p class="text-gray-700"><strong>Reading:</strong> 1 hora - Lee un artículo de opinión.</p>
+                            <p class="text-gray-700"><strong>Writing:</strong> 30 min - Escribe un párrafo de opinión.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-400">
+                            <h4 class="font-bold text-lg mb-2 text-blue-900">Miércoles</h4>
+                            <p class="text-gray-700"><strong>Listening:</strong> 1 hora - Escucha un debate de un podcast.</p>
+                            <p class="text-gray-700"><strong>Speaking:</strong> 30 min - Participa en un chat de voz.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-400">
+                            <h4 class="font-bold text-lg mb-2 text-blue-900">Jueves</h4>
+                            <p class="text-gray-700"><strong>Grammar:</strong> 30 min - Estudia el Presente Perfecto.</p>
+                            <p class="text-gray-700"><strong>Vocabulary:</strong> 30 min - Aprende 10 expresiones para dar tu opinión.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-400">
+                            <h4 class="font-bold text-lg mb-2 text-blue-900">Viernes</h4>
+                            <p class="text-gray-700"><strong>Práctica Libre:</strong> 1.5 horas - Participa en un foro en línea.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-400">
+                            <h4 class="font-bold text-lg mb-2 text-blue-900">Sábado</h4>
+                            <p class="text-gray-700"><strong>Inmersión:</strong> 2 horas - Ve una película o serie sin subtítulos.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-400">
+                            <h4 class="font-bold text-lg mb-2 text-blue-900">Domingo</h4>
+                            <p class="text-gray-700"><strong>Repaso:</strong> 1 hora - Repasa la gramática y el vocabulario de la semana.</p>
+                        </div>
+                    </div>
+                </div>
+            </details>
+            
+            <details class="mb-6">
+                <summary class="summary-title bg-blue-100 text-blue-800 hover:bg-blue-200">
+                    Meses 2-10: Voz Pasiva, Discurso Indirecto y `Phrasal Verbs`
+                </summary>
+                <div class="mt-4 p-6 bg-blue-50 rounded-2xl">
+                    <p class="text-lg font-semibold text-blue-800 mb-4">Objetivo: Usar la voz pasiva y el discurso indirecto. Abarca 9 meses para dominar los `phrasal verbs` y el lenguaje formal.</p>
+                    <h3 class="text-2xl font-semibold text-blue-700 mb-4">Semana 1: Voz Pasiva y `Phrasal Verbs`</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-400">
+                            <h4 class="font-bold text-lg mb-2 text-blue-900">Lunes</h4>
+                            <p class="text-gray-700"><strong>Listening:</strong> 1.5 horas - Escucha noticias.</p>
+                            <p class="text-gray-700"><strong>Speaking:</strong> 30 min - Resume las noticias.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-400">
+                            <h4 class="font-bold text-lg mb-2 text-blue-900">Martes</h4>
+                            <p class="text-gray-700"><strong>Reading:</strong> 1.5 horas - Lee un artículo de revista.</p>
+                            <p class="text-gray-700"><strong>Writing:</strong> 30 min - Escribe una carta formal.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-400">
+                            <h4 class="font-bold text-lg mb-2 text-blue-900">Miércoles</h4>
+                            <p class="text-gray-700"><strong>Listening:</strong> 1 hora - Escucha un podcast de entrevistas.</p>
+                            <p class="text-gray-700"><strong>Speaking:</strong> 1 hora - Practica la voz pasiva.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-400">
+                            <h4 class="font-bold text-lg mb-2 text-blue-900">Jueves</h4>
+                            <p class="text-gray-700"><strong>Grammar:</strong> 1 hora - Estudia la voz pasiva.</p>
+                            <p class="text-gray-700"><strong>Vocabulary:</strong> 30 min - Aprende `phrasal verbs` con `get`.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-400">
+                            <h4 class="font-bold text-lg mb-2 text-blue-900">Viernes</h4>
+                            <p class="text-gray-700"><strong>Práctica Libre:</strong> 1.5 horas - Ejercicios de discurso indirecto.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-400">
+                            <h4 class="font-bold text-lg mb-2 text-blue-900">Sábado</h4>
+                            <p class="text-gray-700"><strong>Inmersión:</strong> 2.5 horas - Ve un documental sin subtítulos.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-400">
+                            <h4 class="font-bold text-lg mb-2 text-blue-900">Domingo</h4>
+                            <p class="text-gray-700"><strong>Repaso:</strong> 1.5 horas - Repasa lo de la semana.</p>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <details class="mb-6">
+                <summary class="summary-title bg-blue-100 text-blue-800 hover:bg-blue-200">
+                    Vocabulario B1
+                </summary>
+                <div class="mt-4 p-6 bg-blue-50 rounded-2xl">
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                        <li><strong>Vocabulario de negocios y trabajo:</strong> `meeting`, `deadline`, `colleague`.</li>
+                        <li><strong>Expresiones para dar y pedir opiniones:</strong> `I think that`, `In my opinion`, `What do you think?`.</li>
+                        <li><strong>`Phrasal verbs` comunes:</strong> `get up`, `take off`, `look for`.</li>
+                        <li><strong>Vocabulario de medios de comunicación:</strong> `headline`, `article`, `broadcast`.</li>
+                        <li><strong>Adjetivos para describir emociones y sentimientos:</strong> `annoyed`, `excited`, `disappointed`.</li>
+                        <li><strong>Vocabulario de la salud y el bienestar:</strong> `symptom`, `prescription`, `treatment`.</li>
+                        <li><strong>Temas de actualidad:</strong> `global warming`, `social media addiction`.</li>
+                    </ul>
+                </div>
+            </details>
+            <details class="mb-6">
+                <summary class="summary-title bg-blue-100 text-blue-800 hover:bg-blue-200">
+                    Gramática B1
+                </summary>
+                <div class="mt-4 p-6 bg-blue-50 rounded-2xl">
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                        <li><strong>Presente Perfecto:</strong> `for`, `since`, `yet`, `already`.</li>
+                        <li><strong>Voz Pasiva:</strong> Presente y Pasado.</li>
+                        <li><strong>Discurso Indirecto y verbos de reportar:</strong> `He said that`, `She told me that`.</li>
+                        <li><strong>Verbos seguidos de `gerunds` e infinitivos.</strong></li>
+                        <li><strong>Condicionales tipo 1 y 2.</strong></li>
+                        <li><strong>`Used to` y `would` para hábitos pasados.</strong></li>
+                        <li><strong>Cláusulas relativas:</strong> `who`, `which`, `that`.</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <!-- Nivel B2 -->
+        <div id="nivel-b2" class="mb-12">
+            <h2 class="text-3xl sm:text-4xl font-bold text-yellow-500 mb-6 border-b-4 border-yellow-200 pb-2">Nivel B2</h2>
+            
+            <details class="mb-6">
+                <summary class="summary-title bg-yellow-100 text-yellow-800 hover:bg-yellow-200">
+                    Mes 1: Temas Sociales y Actualidad
+                </summary>
+                <div class="mt-4 p-6 bg-yellow-50 rounded-2xl">
+                    <p class="text-lg font-semibold text-yellow-800 mb-4">Objetivo del Mes: Participar en debates con fluidez sobre temas de actualidad. Dominar la voz pasiva avanzada y los condicionales.</p>
+                    <h3 class="text-2xl font-semibold text-yellow-700 mb-4">Semana 1: Voz Pasiva y Discusión de Noticias</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-yellow-400">
+                            <h4 class="font-bold text-lg mb-2 text-yellow-900">Lunes</h4>
+                            <p class="text-gray-700"><strong>Listening:</strong> 1.5 horas - Ve un noticiero en inglés.</p>
+                            <p class="text-gray-700"><strong>Speaking:</strong> 30 min - Resume las noticias.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-yellow-400">
+                            <h4 class="font-bold text-lg mb-2 text-yellow-900">Martes</h4>
+                            <p class="text-gray-700"><strong>Reading:</strong> 1.5 horas - Lee un artículo de actualidad.</p>
+                            <p class="text-gray-700"><strong>Writing:</strong> 30 min - Escribe un informe corto.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-yellow-400">
+                            <h4 class="font-bold text-lg mb-2 text-yellow-900">Miércoles</h4>
+                            <p class="text-gray-700"><strong>Listening:</strong> 1.5 horas - Escucha un debate político.</p>
+                            <p class="text-gray-700"><strong>Speaking:</strong> 30 min - Practica la voz pasiva en oraciones.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-yellow-400">
+                            <h4 class="font-bold text-lg mb-2 text-yellow-900">Jueves</h4>
+                            <p class="text-gray-700"><strong>Grammar:</strong> 1 hora - Estudia la voz pasiva avanzada.</p>
+                            <p class="text-gray-700"><strong>Vocabulary:</strong> 1 hora - Aprende verbos frasales.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-yellow-400">
+                            <h4 class="font-bold text-lg mb-2 text-yellow-900">Viernes</h4>
+                            <p class="text-gray-700"><strong>Práctica Libre:</strong> 1.5 horas - Discute un tema de actualidad con un nativo.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-yellow-400">
+                            <h4 class="font-bold text-lg mb-2 text-yellow-900">Sábado</h4>
+                            <p class="text-gray-700"><strong>Inmersión:</strong> 2.5 horas - Ve un documental complejo.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-yellow-400">
+                            <h4 class="font-bold text-lg mb-2 text-yellow-900">Domingo</h4>
+                            <p class="text-gray-700"><strong>Repaso:</strong> 1.5 horas - Repasa la gramática y el vocabulario de la semana.</p>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <details class="mb-6">
+                <summary class="summary-title bg-yellow-100 text-yellow-800 hover:bg-yellow-200">
+                    Meses 2-10: Condicionales, Subjuntivos y `Inversion`
+                </summary>
+                <div class="mt-4 p-6 bg-yellow-50 rounded-2xl">
+                    <p class="text-lg font-semibold text-yellow-800 mb-4">Objetivo: Dominar los condicionales y el uso de `inversion`. Discutir temas complejos.</p>
+                    <h3 class="text-2xl font-semibold text-yellow-700 mb-4">Semana 1: Condicionales e `Inversion`</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-yellow-400">
+                            <h4 class="font-bold text-lg mb-2 text-yellow-900">Lunes</h4>
+                            <p class="text-gray-700"><strong>Listening:</strong> 1 hora - Escucha un debate científico.</p>
+                            <p class="text-gray-700"><strong>Speaking:</strong> 1 hora - Usa condicionales para discutir un tema.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-yellow-400">
+                            <h4 class="font-bold text-lg mb-2 text-yellow-900">Martes</h4>
+                            <p class="text-gray-700"><strong>Reading:</strong> 1.5 horas - Lee un tema político.</p>
+                            <p class="text-gray-700"><strong>Writing:</strong> 30 min - Escribe un ensayo corto.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-yellow-400">
+                            <h4 class="font-bold text-lg mb-2 text-yellow-900">Miércoles</h4>
+                            <p class="text-gray-700"><strong>Listening:</strong> 1.5 horas - Escucha una discusión grupal.</p>
+                            <p class="text-gray-700"><strong>Speaking:</strong> 1 hora - Practica `inversion`.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-yellow-400">
+                            <h4 class="font-bold text-lg mb-2 text-yellow-900">Jueves</h4>
+                            <p class="text-gray-700"><strong>Grammar:</strong> 1.5 horas - Practica `inversion`.</p>
+                            <p class="text-gray-700"><strong>Vocabulary:</strong> 1.5 horas - Aprende `phrasal verbs`.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-yellow-400">
+                            <h4 class="font-bold text-lg mb-2 text-yellow-900">Viernes</h4>
+                            <p class="text-gray-700"><strong>Práctica Libre:</strong> 2 horas - Redacta un informe.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-yellow-400">
+                            <h4 class="font-bold text-lg mb-2 text-yellow-900">Sábado</h4>
+                            <p class="text-gray-700"><strong>Inmersión:</strong> 2.5 horas - Ve una película de ciencia ficción.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-yellow-400">
+                            <h4 class="font-bold text-lg mb-2 text-yellow-900">Domingo</h4>
+                            <p class="text-gray-700"><strong>Repaso:</strong> 2 horas - Repasa todo lo de la semana.</p>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <details class="mb-6">
+                <summary class="summary-title bg-yellow-100 text-yellow-800 hover:bg-yellow-200">
+                    Vocabulario B2
+                </summary>
+                <div class="mt-4 p-6 bg-yellow-50 rounded-2xl">
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                        <li><strong>`Phrasal verbs` y `idioms` comunes:</strong> `to get on with`, `to be on cloud nine`.</li>
+                        <li><strong>Vocabulario de actualidad y política:</strong> `government`, `election`, `policy`.</li>
+                        <li><strong>Expresiones formales e informales:</strong> `I would like to`, `I'd like to`.</li>
+                        <li><strong>Temas de ciencia y tecnología:</strong> `research`, `innovation`, `artificial intelligence`.</li>
+                        <li><strong>Vocabulario sobre el medio ambiente:</strong> `climate change`, `deforestation`, `renewable energy`.</li>
+                        <li><strong>Vocabulario de sentimientos y emociones complejas:</strong> `nostalgia`, `sympathy`, `anxiety`.</li>
+                    </ul>
+                </div>
+            </details>
+            <details class="mb-6">
+                <summary class="summary-title bg-yellow-100 text-yellow-800 hover:bg-yellow-200">
+                    Gramática B2
+                </summary>
+                <div class="mt-4 p-6 bg-yellow-50 rounded-2xl">
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                        <li><strong>Voz pasiva avanzada:</strong> Con modales y tiempos verbales compuestos.</li>
+                        <li><strong>Todos los tipos de condicionales:</strong> 0, 1, 2, 3 y mixtos.</li>
+                        <li><strong>Estructuras de `inversion`:</strong> `Not only... but also`, `Rarely do I...`.</li>
+                        <li><strong>Cláusulas relativas:</strong> `what`, `whose`, `where`, `when`.</li>
+                        <li><strong>Discurso indirecto avanzado.</strong></li>
+                        <li><strong>Elipsis y sustitución.</strong></li>
+                        <li><strong>Gerundios e infinitivos avanzados.</strong></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        
+        <!-- Nivel C1 -->
+        <div id="nivel-c1" class="mb-12">
+            <h2 class="text-3xl sm:text-4xl font-bold text-red-500 mb-6 border-b-4 border-red-200 pb-2">Nivel C1</h2>
+            
+            <details class="mb-6">
+                <summary class="summary-title bg-red-100 text-red-800 hover:bg-red-200">
+                    Mes 1: Cultura y Literatura
+                </summary>
+                <div class="mt-4 p-6 bg-red-50 rounded-2xl">
+                    <p class="text-lg font-semibold text-red-800 mb-4">Objetivo del Mes: Comprender y discutir temas culturales y literarios. Usar lenguaje formal.</p>
+                    <h3 class="text-2xl font-semibold text-red-700 mb-4">Semana 1: `Collocations` y Verbos `Reporting`</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-red-400">
+                            <h4 class="font-bold text-lg mb-2 text-red-900">Lunes</h4>
+                            <p class="text-gray-700"><strong>Listening:</strong> 2 horas - Escucha un audiolibro.</p>
+                            <p class="text-gray-700"><strong>Speaking:</strong> 1 hora - Discute la trama y los personajes.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-red-400">
+                            <h4 class="font-bold text-lg mb-2 text-red-900">Martes</h4>
+                            <p class="text-gray-700"><strong>Reading:</strong> 2 horas - Lee un capítulo de una novela.</p>
+                            <p class="text-gray-700"><strong>Writing:</strong> 1 hora - Escribe una reseña del libro.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-red-400">
+                            <h4 class="font-bold text-lg mb-2 text-red-900">Miércoles</h4>
+                            <p class="text-gray-700"><strong>Listening:</strong> 2 horas - Ve un video de análisis de una película.</p>
+                            <p class="text-gray-700"><strong>Speaking:</strong> 1 hora - Practica `reporting verbs`.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-red-400">
+                            <h4 class="font-bold text-lg mb-2 text-red-900">Jueves</h4>
+                            <p class="text-gray-700"><strong>Grammar:</strong> 1.5 horas - Profundiza en `reporting verbs` avanzados.</p>
+                            <p class="text-gray-700"><strong>Vocabulary:</strong> 1.5 horas - Aprende `collocations` de literatura.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-red-400">
+                            <h4 class="font-bold text-lg mb-2 text-red-900">Viernes</h4>
+                            <p class="text-gray-700"><strong>Práctica Libre:</strong> 2 horas - Participa en un club de lectura en línea.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-red-400">
+                            <h4 class="font-bold text-lg mb-2 text-red-900">Sábado</h4>
+                            <p class="text-gray-700"><strong>Inmersión:</strong> 3 horas - Ve una obra de teatro o un documental complejo.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-red-400">
+                            <h4 class="font-bold text-lg mb-2 text-red-900">Domingo</h4>
+                            <p class="text-gray-700"><strong>Repaso:</strong> 2 horas - Repasa la gramática y el vocabulario de la semana.</p>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <details class="mb-6">
+                <summary class="summary-title bg-red-100 text-red-800 hover:bg-red-200">
+                    Meses 2-12: Lenguaje Académico, Flexibilidad y Fluidez
+                </summary>
+                <div class="mt-4 p-6 bg-red-50 rounded-2xl">
+                    <p class="text-lg font-semibold text-red-800 mb-4">Objetivo: Entender y producir lenguaje complejo en un amplio rango de temas. Usar el inglés con fluidez y naturalidad.</p>
+                    <h3 class="text-2xl font-semibold text-red-700 mb-4">Semana 1: Lenguaje Académico y Discusión Formal</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-red-400">
+                            <h4 class="font-bold text-lg mb-2 text-red-900">Lunes</h4>
+                            <p class="text-gray-700"><strong>Listening:</strong> 2 horas - Escucha conferencias.</p>
+                            <p class="text-gray-700"><strong>Speaking:</strong> 1 hora - Da una presentación formal.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-red-400">
+                            <h4 class="font-bold text-lg mb-2 text-red-900">Martes</h4>
+                            <p class="text-gray-700"><strong>Reading:</strong> 2 horas - Lee un libro o artículo científico.</p>
+                            <p class="text-gray-700"><strong>Writing:</strong> 1 hora - Escribe un ensayo académico.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-red-400">
+                            <h4 class="font-bold text-lg mb-2 text-red-900">Miércoles</h4>
+                            <p class="text-gray-700"><strong>Listening:</strong> 2 horas - Escucha una entrevista de alto nivel.</p>
+                            <p class="text-gray-700"><strong>Speaking:</strong> 1 hora - Participa en un debate.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-red-400">
+                            <h4 class="font-bold text-lg mb-2 text-red-900">Jueves</h4>
+                            <p class="text-gray-700"><strong>Grammar:</strong> 1.5 horas - Repaso de voz pasiva avanzada.</p>
+                            <p class="text-gray-700"><strong>Vocabulary:</strong> 1.5 horas - Aprende sinónimos y antónimos.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-red-400">
+                            <h4 class="font-bold text-lg mb-2 text-red-900">Viernes</h4>
+                            <p class="text-gray-700"><strong>Práctica Libre:</strong> 2 horas - Redacta un informe profesional.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-red-400">
+                            <h4 class="font-bold text-lg mb-2 text-red-900">Sábado</h4>
+                            <p class="text-gray-700"><strong>Inmersión:</strong> 3 horas - Ve una serie dramática sin subtítulos.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-red-400">
+                            <h4 class="font-bold text-lg mb-2 text-red-900">Domingo</h4>
+                            <p class="text-gray-700"><strong>Repaso:</strong> 2 horas - Repasa todo lo de la semana.</p>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <details class="mb-6">
+                <summary class="summary-title bg-red-100 text-red-800 hover:bg-red-200">
+                    Vocabulario C1
+                </summary>
+                <div class="mt-4 p-6 bg-red-50 rounded-2xl">
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                        <li><strong>`Collocations` y expresiones idiomáticas:</strong> `to take into account`, `to be in hot water`.</li>
+                        <li><strong>Vocabulario académico y formal:</strong> `consequently`, `furthermore`, `in conclusion`.</li>
+                        <li><strong>Lenguaje figurativo:</strong> `metaphors`, `similes`.</li>
+                        <li><strong>Temas abstractos y culturales:</strong> `philosophy`, `sociology`, `political science`.</li>
+                        <li><strong>Sinónimos y antónimos avanzados:</strong> `plethora` - `paucity`, `ubiquitous` - `rare`.</li>
+                        <li><strong>Vocabulario de negocios y derecho:</strong> `contract`, `liability`, `jurisdiction`.</li>
+                    </ul>
+                </div>
+            </details>
+            <details class="mb-6">
+                <summary class="summary-title bg-red-100 text-red-800 hover:bg-red-200">
+                    Gramática C1
+                </summary>
+                <div class="mt-4 p-6 bg-red-50 rounded-2xl">
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                        <li><strong>Voz pasiva en todas sus formas.</strong></li>
+                        <li><strong>Estructuras de `inversion` complejas.</strong></li>
+                        <li><strong>Uso de conectores para la cohesión del texto:</strong> `although`, `in spite of`, `however`.</li>
+                        <li><strong>Cláusulas de relativo avanzadas y elipsis.</strong></li>
+                        <li><strong>Varios `reporting verbs` y el estilo de escritura.</strong></li>
+                        <li><strong>Estructuras verbales complejas:</strong> `I had had`, `I will have been doing`.</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <!-- Nivel C2 -->
+        <div id="nivel-c2" class="mb-12">
+            <h2 class="text-3xl sm:text-4xl font-bold text-purple-500 mb-6 border-b-4 border-purple-200 pb-2">Nivel C2</h2>
+            
+            <details class="mb-6">
+                <summary class="summary-title bg-purple-100 text-purple-800 hover:bg-purple-200">
+                    Mes 1: Dialectos y Acentos
+                </summary>
+                <div class="mt-4 p-6 bg-purple-50 rounded-2xl">
+                    <p class="text-lg font-semibold text-purple-800 mb-4">Objetivo del Mes: Comprender y usar diferentes dialectos y acentos. Lograr una fluidez casi nativa.</p>
+                    <h3 class="text-2xl font-semibold text-purple-700 mb-4">Semana 1: Sonidos y Acentos</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-purple-400">
+                            <h4 class="font-bold text-lg mb-2 text-purple-900">Lunes</h4>
+                            <p class="text-gray-700"><strong>Listening:</strong> 2 horas - Escucha podcasts con acentos difíciles.</p>
+                            <p class="text-gray-700"><strong>Speaking:</strong> 1 hora - Intenta imitar el acento.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-purple-400">
+                            <h4 class="font-bold text-lg mb-2 text-purple-900">Martes</h4>
+                            <p class="text-gray-700"><strong>Reading:</strong> 2 horas - Lee un libro con diálogos que imiten acentos.</p>
+                            <p class="text-gray-700"><strong>Writing:</strong> 1 hora - Escribe un guion con diálogos en diferentes acentos.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-purple-400">
+                            <h4 class="font-bold text-lg mb-2 text-purple-900">Miércoles</h4>
+                            <p class="text-gray-700"><strong>Listening:</strong> 2 horas - Ve entrevistas con gente de diferentes países.</p>
+                            <p class="text-gray-700"><strong>Speaking:</strong> 1 hora - Pregúntale a un nativo sobre su acento.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-purple-400">
+                            <h4 class="font-bold text-lg mb-2 text-purple-900">Jueves</h4>
+                            <p class="text-gray-700"><strong>Grammar:</strong> 2 horas - Repasa la fonética y los matices.</p>
+                            <p class="text-gray-700"><strong>Vocabulary:</strong> 1 hora - Aprende `slang` y expresiones coloquiales.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-purple-400">
+                            <h4 class="font-bold text-lg mb-2 text-purple-900">Viernes</h4>
+                            <p class="text-gray-700"><strong>Práctica Libre:</strong> 2 horas - Participa en una conversación con varios hablantes.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-purple-400">
+                            <h4 class="font-bold text-lg mb-2 text-purple-900">Sábado</h4>
+                            <p class="text-gray-700"><strong>Inmersión:</strong> 4 horas - Ve películas de diferentes países de habla inglesa.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-purple-400">
+                            <h4 class="font-bold text-lg mb-2 text-purple-900">Domingo</h4>
+                            <p class="text-gray-700"><strong>Repaso:</strong> 2.5 horas - Repasa la fonética, acentos y vocabulario de la semana.</p>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <details class="mb-6">
+                <summary class="summary-title bg-purple-100 text-purple-800 hover:bg-purple-200">
+                    Meses 2-12: Dominio de la Jerga, `Slang` y Usos Especializados
+                </summary>
+                <div class="mt-4 p-6 bg-purple-50 rounded-2xl">
+                    <p class="text-lg font-semibold text-purple-800 mb-4">Objetivo: Mantener el nivel y entender el idioma en contextos muy especializados y fluidos.</p>
+                    <h3 class="text-2xl font-semibold text-purple-700 mb-4">Semana 1: Jerga y `Slang`</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-purple-400">
+                            <h4 class="font-bold text-lg mb-2 text-purple-900">Lunes</h4>
+                            <p class="text-gray-700"><strong>Listening:</strong> 3 horas - Escucha `stand-up comedy`.</p>
+                            <p class="text-gray-700"><strong>Speaking:</strong> 1.5 horas - Intenta usar `slang` en una conversación.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-purple-400">
+                            <h4 class="font-bold text-lg mb-2 text-purple-900">Martes</h4>
+                            <p class="text-gray-700"><strong>Reading:</strong> 3 horas - Lee literatura clásica o un ensayo filosófico.</p>
+                            <p class="text-gray-700"><strong>Writing:</strong> 1.5 horas - Escribe sobre un tema abstracto.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-purple-400">
+                            <h4 class="font-bold text-lg mb-2 text-purple-900">Miércoles</h4>
+                            <p class="text-gray-700"><strong>Listening:</strong> 2 horas - Escucha un discurso político complejo.</p>
+                            <p class="text-gray-700"><strong>Speaking:</strong> 2 horas - Discute el discurso con un nativo.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-purple-400">
+                            <h4 class="font-bold text-lg mb-2 text-purple-900">Jueves</h4>
+                            <p class="text-700"><strong>Grammar:</strong> 2 horas - Repaso de estructuras complejas.</p>
+                            <p class="text-700"><strong>Vocabulary:</strong> 2 horas - Aprende jerga y dialectos.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-purple-400">
+                            <h4 class="font-bold text-lg mb-2 text-purple-900">Viernes</h4>
+                            <p class="text-gray-700"><strong>Práctica Libre:</strong> 3 horas - Participa en un debate en un foro en línea.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-purple-400">
+                            <h4 class="font-bold text-lg mb-2 text-purple-900">Sábado</h4>
+                            <p class="text-gray-700"><strong>Inmersión:</strong> 4 horas - Ve una serie o película de culto.</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-purple-400">
+                            <h4 class="font-bold text-lg mb-2 text-purple-900">Domingo</h4>
+                            <p class="text-gray-700"><strong>Repaso:</strong> 3 horas - Repasa todo lo de la semana.</p>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <details class="mb-6">
+                <summary class="summary-title bg-purple-100 text-purple-800 hover:bg-purple-200">
+                    Vocabulario C2
+                </summary>
+                <div class="mt-4 p-6 bg-purple-50 rounded-2xl">
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                        <li><strong>Jerga, dialectos y regionalismos:</strong> `mate` (AU), `bloke` (UK), `y'all` (US).</li>
+                        <li><strong>`Idioms` avanzados y refranes:</strong> `to bite the bullet`, `to get the hang of something`.</li>
+                        <li><strong>Sinónimos y antónimos especializados:</strong> `ameliorate` - `exacerbate`, `ephemeral` - `perpetual`.</li>
+                        <li><strong>Términos técnicos y de negocios.</strong></li>
+                        <li><strong>Modismos y expresiones coloquiales.</strong></li>
+                        <li><strong>Vocabulario de la jerga de Internet y redes sociales.</strong></li>
+                    </ul>
+                </div>
+            </details>
+            <details class="mb-6">
+                <summary class="summary-title bg-purple-100 text-purple-800 hover:bg-purple-200">
+                    Gramática C2
+                </summary>
+                <div class="mt-4 p-6 bg-purple-50 rounded-2xl">
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                        <li><strong>Manejo de la cohesión y la coherencia.</strong></li>
+                        <li><strong>Uso de estructuras gramaticales raras o arcaicas.</strong></li>
+                        <li><strong>Sintaxis compleja y variaciones de oraciones.</strong></li>
+                        <li><strong>Dominio total de los tiempos verbales.</strong></li>
+                        <li><strong>Uso del `subjunctive mood` avanzado.</strong></li>
+                        <li><strong>Cláusulas de participio y estructuras de `inversion`.</strong></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <hr class="my-10 border-t-2 border-gray-300">
+
+        <!-- Consideraciones Adicionales -->
+        <div class="mt-12">
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-700 mb-6 border-b-4 border-gray-300 pb-2">Consideraciones Adicionales</h2>
+            <div class="content-box">
+                <h3 class="text-2xl font-semibold text-gray-700 mb-4">Repetición y Consistencia</h3>
+                <p class="text-gray-700 mb-4">
+                    Para que este plan funcione, la clave es la repetición. No te limites a la primera semana de cada mes. Revisa y practica los conceptos y el vocabulario de las semanas anteriores para reforzar tu aprendizaje y asegurar que el conocimiento se consolide a largo plazo.
+                </p>
+                <h3 class="text-2xl font-semibold text-gray-700 mb-4">Encuentra tu Pasión</h3>
+                <p class="text-gray-700">
+                    A medida que avanzas, adapta este plan a tus intereses. Si te gusta la música, escucha podcasts y lee artículos sobre tus artistas favoritos. Si te gusta el cine, ve películas en inglés. ¡La inmersión debe ser divertida y personal!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top-btn" class="scroll-to-top">
+        &uarr;
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
+            const nivelA2 = document.getElementById('nivel-a2');
+            
+            if (!scrollToTopBtn || !nivelA2) {
+                console.error("No se encontraron los elementos necesarios.");
+                return;
+            }
+
+            // Muestra u oculta el botón al hacer scroll
+            window.addEventListener('scroll', () => {
+                const a2Position = nivelA2.getBoundingClientRect();
+                if (a2Position.top <= window.innerHeight && a2Position.bottom >= 0) {
+                    scrollToTopBtn.classList.add('visible');
+                } else if (window.scrollY > nivelA2.offsetTop) {
+                     scrollToTopBtn.classList.add('visible');
+                } else {
+                    scrollToTopBtn.classList.remove('visible');
+                }
+            });
+
+            // Acción al hacer clic en el botón
+            scrollToTopBtn.addEventListener('click', () => {
+                const targetElement = document.getElementById('resumen-del-plan-anual');
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
